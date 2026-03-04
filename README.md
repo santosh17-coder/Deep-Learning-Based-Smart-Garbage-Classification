@@ -68,4 +68,4 @@ The model classifies the following categories:
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/garbage-classification.git
+git clone https://github.com/santosh17-coder/garbage-classification.git
