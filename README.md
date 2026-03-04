@@ -60,4 +60,12 @@ The model classifies the following categories:
 
 ---
 
-## Project Structure
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/garbage-classification.git
