@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+Flask==2.0.1
+tensorflow==2.8.0
+numpy==1.21.4
+Pillow==8.4.0
+
+=======
+Flask==2.0.1
+tensorflow==2.8.0
+numpy==1.21.4
+Pillow==8.4.0
+
+>>>>>>> fe98041f04fd5527ea0e009043a6455356b08b55

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #e0f7e9, #ffffff);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #2c3e50;
+      display: none;
+    }
+
+    .bin-container {
+      position: relative;
+      width: 150px;
+      height: 200px;
+      margin: 0 auto;
+      transform: rotate(180deg); /* Invert bin */
+      cursor: pointer;
+    }
+
+    .bin-body {
+      background-color: #2ecc71;
+      width: 150px;
+      height: 150px;
+      border-radius: 0 0 15px 15px;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .bin-lid {
+      width: 150px;
+      height: 40px;
+      background-color: #27ae60;
+      border-radius: 15px 15px 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    /* Lid falls down */
+    @keyframes openLidDown {
+      0% { top: 0; opacity: 1; }
+      100% { top: 120px; opacity: 0; }
+    }
+
+    /* Fade-in for image */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .uploaded-image {
+      display: none;
+      margin: 20px auto; 
+      width: 140px;
+      height: 140px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: none;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      margin: 10px;
+      display: inline-block;
+    }
+
+    .buttons a:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Prediction Result</h1>
+
+  <!-- Bin -->
+  <div class="bin-container" id="bin-container">
+    <div class="bin-lid" id="bin-lid"></div>
+    <div class="bin-body">♻️</div>
+  </div>
+
+  <!-- Uploaded Image -->
+  <img src="{{ image_path }}" alt="Uploaded Image" id="uploaded-img" class="uploaded-image" />
+
+  <!-- Predicted Class -->
+  <h2 id="predicted-class">Predicted Class: {{ prediction }}</h2>
+
+  <!-- Buttons -->
+  <div class="buttons" id="buttons">
+    <a href="/" class="btn">Upload Another Image</a>
+    <a href="/performance" class="btn">View Performance Metrics</a>
+  </div>
+
+  <script>
+    document.getElementById("bin-container").addEventListener("click", function() {
+      // Animate lid down
+      const lid = document.getElementById("bin-lid");
+      lid.style.animation = "openLidDown 1s forwards";
+
+      // After lid falls, show image
+      setTimeout(function() {
+        const image = document.getElementById("uploaded-img");
+        image.style.display = "block"; // unhide image
+        image.style.animation = "fadeIn 1.5s ease forwards";
+
+        // Show predicted class after image
+        setTimeout(() => {
+          document.getElementById("predicted-class").style.display = "block";
+        }, 1000);
+
+        // Show buttons last
+        setTimeout(() => {
+          document.getElementById("buttons").style.display = "block";
+        }, 1500);
+
+      }, 1000); // delay to match lid animation
+    });
+  </script>
+
+</body>
+</html>

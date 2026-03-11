@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Performance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8f9fa;
+        }
+
+        h1, h2 {
+            color: #343a40;
+            text-align: center;
+        }
+
+        .metrics-box {
+            width: 50%;
+            margin: 0 auto 30px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .metric {
+            font-size: 18px;
+            margin: 15px 0;
+            color: #212529;
+        }
+
+        .confusion-matrix {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .confusion-matrix img {
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Model Performance</h1>
+
+    <div class="metrics-box">
+        <div class="metric"><strong>Accuracy:</strong> 86.88%</div>
+        <div class="metric"><strong>Weighted F1 Score:</strong> 86.68%</div>
+        <div class="metric"><strong>Macro Precision:</strong> 87%</div>
+        <div class="metric"><strong>Macro Recall:</strong> 84%</div>
+    </div>
+
+    <div class="confusion-matrix">
+        <h2>Confusion Matrix</h2>
+        <img src="/static/performance/confussion_matrix.png" alt="Confusion Matrix" />
+    </div>
+
+</body>
+</html>
+
