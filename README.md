@@ -4,6 +4,8 @@ Deep learning based waste classification system using ResNet50 and Flask to clas
 
 This project implements an intelligent waste classification system using deep learning to automatically identify different types of garbage from images. The system helps improve waste sorting efficiency and supports smart waste management and recycling initiatives.
 
+dataset:https://www.kaggle.com/datasets/farzadnekouei/trash-type-image-dataset
+
 ---
 
 ## Project Overview
